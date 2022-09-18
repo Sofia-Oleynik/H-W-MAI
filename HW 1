@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+class String {
+	char *buf;	
+public:
+	String(const char *tbuf) {
+		int length = size(tbuf);
+		buf = new char[length];
+		for (int i = 0; i < length; i++) {
+			buf[i] = tbuf[i];
+		}
+	}
+
+	int size(const char *buf) {
+		int count = 0;
+		while (&buf[count] != "\0")count++;
+		return count;
+	}
+
+  //	String(String *p)
+	void show() {
+		cout << buf;
+	}
+};
+
+int main() {
+	setlocale(LC_ALL, "Rus");
+	String str("Привет");
+	str.show();
+}
